@@ -17,7 +17,7 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  config.hosts << "flight-booking-backend-production.up.railway.app" 
+  # config.hosts << "flight-booking-backend-production.up.railway.app" 
 
 
   # Enable/disable caching. By default caching is disabled.
