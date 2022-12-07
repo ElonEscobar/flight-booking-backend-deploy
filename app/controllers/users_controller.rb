@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-    before_action :authorize, only: [:show]
+    # before_action :authorize, only: [:show]
     wrap_parameters format: []
     
     def index
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     # def show
     #     render json: User.find(params[:id])
     # end
+
     def show
         user = User.find_by(id: session[:user_id])
         if user
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
         render json: { errors: ['User not found'] }, status: :not_found
     end
 
-    def authorize
-        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-    end
+    # def authorize
+    #     return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    # end
 end

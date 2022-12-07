@@ -1,7 +1,21 @@
 class FlightsController < ApplicationController
     wrap_parameters format: []
+    before_action :authorize
+
     def index
-        render json: Flight.all
+        if params[:user_id]
+            user =User.find(params[:user_id])
+            flights = user.flights
+        else
+            flights = Flights.all
+        end
+        render json: flights, include: :user
+        # render json: Flight.all
+    end
+
+    def show
+        flights = Flight.find(params[:id])
+        render json: flights
     end
 
     def destroy
@@ -33,5 +47,9 @@ class FlightsController < ApplicationController
 
     def new_flight_params
         params.permit(:destination, :departure, :flight_date, :return_date, :user_id)
+    end
+
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     end
 end
