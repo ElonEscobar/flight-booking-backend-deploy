@@ -20,4 +20,4 @@ services:
           type: redis
           name: flight_booking_backend_production_redis
           property: connectionString
-      - key: SECRET_KEY_BASE
+      
