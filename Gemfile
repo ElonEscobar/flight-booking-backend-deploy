@@ -5,6 +5,8 @@ ruby "3.0.4"
 
 gem 'bcrypt'
 
+gem "byebug"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
@@ -22,7 +24,8 @@ gem 'active_model_serializers'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem "rack-cors"
+
 
 group :development, :test do
 
@@ -37,3 +40,5 @@ group :development do
 end
 
 
+
+# gem "jwt", "~> 2.5"
