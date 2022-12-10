@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
     wrap_parameters format: []
-    # skip_before_action :authorize, only: [:index, :create]
+     skip_before_action :authorize, only: [ :destroy]
 
     def index
         user = User.find_by(id: session[:user_id])
